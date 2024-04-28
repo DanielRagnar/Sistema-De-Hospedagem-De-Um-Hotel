@@ -20,6 +20,31 @@ Reserva reserva = new Reserva(diasReservados: 5);
 reserva.CadastrarSuite(suite);
 reserva.CadastrarHospedes(hospedes);
 
-// Exibe a quantidade de hóspedes e o valor da diária
-Console.WriteLine($"Hóspedes: {reserva.ObterQuantidadeHospedes()}");
-Console.WriteLine($"Valor diária: {reserva.CalcularValorDiaria()}");
+bool sair = false;
+
+        while (!sair)
+        {
+            Console.WriteLine("Escolha uma opção:");
+            Console.WriteLine("1. Exibir informações da reserva");
+            Console.WriteLine("2. Sair");
+
+            string opcao = Console.ReadLine();
+
+            switch (opcao)
+            {
+                case "1":
+                    // Exibe a quantidade de hóspedes e o valor da diária
+                    Console.WriteLine($"Hóspedes: {reserva.ObterQuantidadeHospedes()}");
+                    Console.WriteLine($"Valor diária: {reserva.CalcularValorDiaria()}");
+                    break;
+                case "2":
+                    sair = true;
+                    break;
+                default:
+                    Console.WriteLine("Opção inválida. Tente novamente.");
+                    break;
+            }
+
+            Console.WriteLine(); // Adiciona uma linha em branco para melhorar a legibilidade
+        }
+
